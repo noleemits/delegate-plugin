@@ -49,7 +49,7 @@
                         echo '</td>';
 
                         // Display Product Total with HTML escaped
-                        echo '<td>' . esc_html($order_data['product_total']) . '</td>';
+                        echo '<td>' . esc_html($order_data['product_total']) . '</td>' ;
                         echo '</tr>';
                     }
                 }
