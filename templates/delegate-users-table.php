@@ -21,10 +21,12 @@
             <?php foreach ($delegate_users as $delegate_user): ?>
                 <tr>
                     <td>
+                    <span class="hide-on-desktop">Email: </span>
                         <?php echo esc_html($delegate_user['email']); ?>
                     </td>
+
                     <?php if ($delegate_user['registered']): ?>
-                        <td>
+                        <td><span class="hide-on-desktop">Name: </span>
                             <?php if (isset($_GET['edit_delegate_user']) && $_GET['edit_delegate_user'] == $delegate_user['ID']): ?>
                                 <input type="text" form="edit_delegate_form" name="edit_delegate_first_name"
                                     id="edit_delegate_first_name"
@@ -35,6 +37,7 @@
                         </td>
 
                         <td>
+                        <span class="hide-on-desktop">Phone: </span>
                             <?php if (isset($_GET['edit_delegate_user']) && $_GET['edit_delegate_user'] == $delegate_user['ID']): ?>
                                 <input type="text" form="edit_delegate_form" name="edit_delegate_phone" id="edit_delegate_phone"
                                     value="<?php echo esc_attr(get_user_meta($delegate_user['ID'], 'phone', true)); ?>" required>
@@ -44,6 +47,7 @@
                         </td>
 
                         <td>
+                        <span class="hide-on-desktop">Documented Proof of Death: </span>
                             <?php if (isset($_GET['edit_delegate_user']) && $_GET['edit_delegate_user'] == $delegate_user['ID']): ?>
                                 <label>
                                     <input type="checkbox" form="edit_delegate_form" name="edit_delegate_documented_proof"
@@ -58,7 +62,7 @@
 
 
 
-                        <td>Registered</td>
+                        <td>  <span class="hide-on-desktop">Status: </span>Registered</td>
 
 
                         <td>
@@ -74,6 +78,7 @@
                         </td>
 
                         <td>
+                        
                             <form method="post" action="" id="delete_delegate_form">
                                 <input type="hidden" name="delete_delegate_user_id"
                                     value="<?php echo esc_attr($delegate_user['ID']); ?>">
@@ -87,7 +92,7 @@
                         <td colspan="3">Pending Registration</td>
                         <td>Not Registered</td>
                         <td></td>
-                        <td>
+                        <td> 
                             <form method="post" action="" id="delete_delegate_form">
                                 <input type="hidden" name="delete_delegate_user_id"
                                     value="<?php echo esc_attr($delegate_user['ID']); ?>">
