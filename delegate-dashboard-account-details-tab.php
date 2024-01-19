@@ -48,7 +48,17 @@ function add_customer_custom_fields_to_edit_account_form()
             'default' => esc_attr(get_user_meta($user_id, 'billing_address_1', true)),
         )
     );
-
+    // Add 'Address Line 2' field
+    woocommerce_form_field(
+        'billing_address_2',
+        array(
+            'type' => 'text',
+            'class' => array('woocommerce-Input', 'woocommerce-Input--text', 'input-text'),
+            'label' => __('Address Line 2', 'woocommerce'),
+            'required' => false, // Set to true if this field is required
+            'default' => esc_attr(get_user_meta($user_id, 'billing_address_2', true)),
+        )
+    );
     // City
     woocommerce_form_field(
         'billing_city',
@@ -98,6 +108,11 @@ function save_customer_custom_fields_account_details($user_id)
     if (isset($_POST['billing_address_1'])) {
         $billing_address = sanitize_text_field($_POST['billing_address_1']);
         update_user_meta($user_id, 'billing_address_1', $billing_address);
+    }
+    // Save 'Address Line 2'
+    if (isset($_POST['billing_address_2'])) {
+        $billing_address_2 = sanitize_text_field($_POST['billing_address_2']);
+        update_user_meta($user_id, 'billing_address_2', $billing_address_2);
     }
     // City
     if (isset($_POST['billing_city'])) {
