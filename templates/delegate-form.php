@@ -1,5 +1,5 @@
 <!-- delegate-form.php -->
-<p>Fill this form to add a new Legacy Agent</p>
+<p>Enter the e-mail address of the person you wish to designate.</p>
 <form id="delegate_user_form" method="post" action="">
     <table>
         <tr>
